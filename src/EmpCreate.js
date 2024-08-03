@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import db from "./dummyDatabase";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EmpCreate = () => {
     const [employees, setEmployees] = useState(db.readAll());
@@ -11,12 +12,19 @@ const EmpCreate = () => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
       };
+ 
+      const navigate = useNavigate();
+
+      const navigateToHome = () => {
+        navigate(`/`);
+    };
 
       const handleSubmit = (e) => {
         e.preventDefault();
         db.create(form);
         setEmployees(db.readAll());
         setForm({  id:'' ,firstName: '', lastName: '', email: '' ,age:'',contactNumber:'',dob:''});
+        navigateToHome();
     
       };
 
@@ -25,6 +33,7 @@ const EmpCreate = () => {
         db.update(form.id, form);
         setEmployees(db.readAll());
         setForm({  id:'' ,firstName: '', lastName: '', email: '' ,age:'',contactNumber:'',dob:''});
+        navigateToHome();
     
       };
     

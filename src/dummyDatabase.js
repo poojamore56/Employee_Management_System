@@ -35,6 +35,7 @@ class DummyDatabase {
     delete(id) {
       return this.data.delete(id);
     }
+    
   }
   
   const db = new DummyDatabase();
