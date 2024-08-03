@@ -1,9 +1,15 @@
 /* src/Register.css */
+.App {
+  text-align: center;
+}
 form {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: auto;
+}
+.divbtn{
+  float: left;
 }
 
 div {

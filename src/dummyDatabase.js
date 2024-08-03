@@ -13,7 +13,11 @@ class DummyDatabase {
     }
   
     read(id) {
+      console.log("inside read id" , id, " ", this.data[id-1]);
       return this.data.get(id);
+    }
+    fetchEmployee(){
+      return 
     }
   
     readAll() {
