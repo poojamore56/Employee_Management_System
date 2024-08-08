@@ -66,7 +66,7 @@ const EmpEdit = () => {
     // Fetch item details by ID
     console.log("this is data as object ", db.readAll()[id - 1]);
     console.log("this is data ", JSON.stringify(db, null, 2));
-    employeeData = db.readAll()[id - 1];
+    employeeData = db.read(Number(id));
     setForm(employeeData);
   }, [id]);
 
