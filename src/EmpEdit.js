@@ -124,7 +124,7 @@ const EmpEdit = () => {
                     <div className="col-lg-12">
                       <label>Age</label>
                       <input
-                        type="text"
+                        type="number"
                         name="age"
                         value={form.age}
                         onChange={handleChange}
@@ -137,7 +137,7 @@ const EmpEdit = () => {
                     <div className="col-lg-12">
                       <label>Contact Number</label>
                       <input
-                        type="text"
+                        maxLength="10"
                         name="contactNumber"
                         value={form.contactNumber}
                         onChange={handleChange}
@@ -150,7 +150,7 @@ const EmpEdit = () => {
                     <div className="col-lg-12">
                       <label>DOB</label>
                       <input
-                        type="text"
+                        type="date"
                         name="dob"
                         value={form.dob}
                         onChange={handleChange}

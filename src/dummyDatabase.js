@@ -11,6 +11,10 @@ class DummyDatabase {
       this.data.set(this.id, { ...record, id: this.id });
       return this.data.get(this.id);
     }
+    createBatch(records) {
+      records.forEach(record => this.create(record));
+    }
+  
   
     read(id) {
       console.log("inside read id" , id, " ", this.data[id-1]);
@@ -35,7 +39,7 @@ class DummyDatabase {
     delete(id) {
       return this.data.delete(id);
     }
-    
+     
   }
   
   const db = new DummyDatabase();

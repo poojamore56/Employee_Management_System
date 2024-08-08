@@ -69,19 +69,20 @@ const EmpCreate = () => {
          <div>
             <div className="col-lg-12">  
             <label>Age</label>
-            <input type="text" name="age" value={form.age} onChange={handleChange} placeholder="Age" required/>
+            <input type="number" name="age" value={form.age} onChange={handleChange} placeholder="Age" required/>
        </div>
        </div>
        <div>
             <div className="col-lg-12">  
             <label>Contact Number</label>
-            <input type="text" name="contactNumber" value={form.contactNumber} onChange={handleChange} placeholder="contactNumber" required />
+            <input maxLength="10"  name="contactNumber" value={form.contactNumber} onChange={handleChange} placeholder="contactNumber"  pattern="\d{10}"
+                 required />
        </div>
        </div>
         <div>
             <div className="col-lg-12">  
             <label>DOB</label>
-            <input type="text" name="dob" value={form.dob} onChange={handleChange} placeholder="dob" required/>
+            <input type="date" name="dob" value={form.dob} onChange={handleChange} placeholder="dob" required/>
         </div>
         </div>
               <div className="col-lg-12">  

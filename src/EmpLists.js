@@ -1,19 +1,11 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import db from "./dummyDatabase";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const EmpLists = () => {
   const [employees, setEmployees] = useState(db.readAll());
-  const [form, setForm] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    age: "",
-    contactNumber: "",
-    dob: "",
-  });
+  
 
   const navigate = useNavigate();
 
@@ -29,32 +21,37 @@ const EmpLists = () => {
     db.delete(id);
     setEmployees(db.readAll());
   };
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        const response = await fetch('https://hub.dummyapis.com/employee?noofRecords=50&idStarts=1001');
+        const data = await response.json();
+        db.createBatch(data);
+        const initialEmployees = db.readAll();
+        setEmployees(initialEmployees);
+      } catch (error) {
+        console.error('Error fetching data from API:', error);
+      }
+    };
 
-  const handleUpdate = (id) => {
-    const employee = db.read(id);
-    setForm({
-      id: employee.id,
-      firstName: employee.firstName,
-      lastName: employee.lastName,
-      email: employee.email,
-      age: employee.age,
-      contactNumber: employee.contactNumber,
-      dob: employee.dob,
-    });
-  };
+    fetchEmployees();
+  }, []);
 
+
+
+  
   return (
     <div>
       <div className="container">
         <div className="card">
           <div className="card-title">
-            <Link to="employee/create" className="btn btn-success">
-              Add New(+)
-            </Link>
+            
           </div>
           <div className="card-body">
             <div className="divbtn">
-              <h2>Employee Lists</h2>
+              <h2>Employee Lists<Link to="employee/create" className="btn btn-success add-btn" >
+              Add New(+)
+            </Link></h2>
             </div>
             <table className="table table-bordered">
               <thead className="bg-dark text-white">
@@ -82,20 +79,20 @@ const EmpLists = () => {
                     <td>
                       <button
                         onClick={() => handleEditClick(employee.id)}
-                        className="btn btn-primary"
+                        className="btn btn-primary  action-btn"
                       >
                         Edit
                       </button>
 
                       <button
                         onClick={() => handleDetailClick(employee.id)}
-                        className="btn btn-primary "
+                        className="btn btn-primary  action-btn "
                       >
                         Details
                       </button>
                       <button
                         onClick={() => handleDelete(employee.id)}
-                        className="btn btn-danger"
+                        className="btn btn-danger action-btn "
                       >
                         Delete
                       </button>
