@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const EmpDetail = () => { 
   const { id } = useParams();
-  const employeeData = db.readAll()[id-1];
+  const employeeData = db.read(Number(id));
   return (
     <div>
       <div className="container">
