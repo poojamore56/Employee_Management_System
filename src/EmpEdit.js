@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist";
 
-const EmpEdit = () => {
+const EmpEdit = () => { 
   const { id } = useParams();
   console.log("id is this: ", id);
   let employeeData = null;
