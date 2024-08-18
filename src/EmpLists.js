@@ -49,6 +49,11 @@ const EmpLists = () => {
           </div>
           <div className="card-body">
             <div className="divbtn">
+              <div>
+                <nav>
+                <Link to="EmployeeAgeChart" className="btn btn-success">AgeChart</Link>
+                </nav>
+              </div>
               <h2>Employee Lists<Link to="employee/create" className="btn btn-success add-btn" >
               Add New(+)
             </Link></h2>

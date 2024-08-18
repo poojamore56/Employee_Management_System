@@ -136,6 +136,8 @@ button {
 .action-btn:last-child {
   margin-right: 0; 
 }
-
+.add-chart{
+  margin-left: 800px;
+}
 
 

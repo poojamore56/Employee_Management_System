@@ -14,7 +14,7 @@ class DummyDatabase {
     createBatch(records) {
       records.forEach(record => this.create(record));
     }
-  
+      
   
     read(id) {
       console.log("inside read id" , id, " ", this.data[id-1]);
@@ -23,7 +23,8 @@ class DummyDatabase {
     fetchEmployee(){
       return 
     }
-  
+    
+
     readAll() {
       return Array.from(this.data.values());
     }
