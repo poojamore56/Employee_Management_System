@@ -24,7 +24,7 @@ const EmpLists = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await fetch('https://hub.dummyapis.com/employee?noofRecords=5&idStarts=1');
+        const response = await fetch('https://hub.dummyapis.com/employee?noofRecords=50&idStarts=1001');
         const data = await response.json();
         db.createBatch(data);
         const initialEmployees = db.readAll();
@@ -51,7 +51,7 @@ const EmpLists = () => {
             <div className="divbtn">
               <div>
                 <nav>
-                <Link to="EmployeeAgeChart" className="btn btn-success">chart</Link>
+                <Link to="EmployeeAgeChart" className="btn btn-success">AgeChart</Link>
                 </nav>
               </div>
               <h2>Employee Lists<Link to="employee/create" className="btn btn-success add-btn" >
